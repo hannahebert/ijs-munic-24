@@ -1,13 +1,16 @@
 import {Component, OnInit} from '@angular/core';
 import {BingoField} from '../model/bingo-field.data';
-import {BingoFieldHttpService} from '../services/bingo-field.http.service';
+import {BingoFieldHttpService} from '../../services/bingo-field.http.service';
 import {BingoCategory} from '../model/bingo-category.enum';
-import {AuthHttpService} from '../services/auth-http.service';
+import {AuthHttpService} from '../../services/auth-http.service';
+import {BingoFieldComponent} from "../bingo-field/bingo-field.component";
 
 @Component({
   selector: 'app-bingo-board',
   templateUrl: './bingo-board.component.html',
   styleUrls: ['./bingo-board.component.scss'],
+  standalone: true,
+  imports: [BingoFieldComponent],
 })
 export class BingoBoardComponent implements OnInit {
   readonly bingoCategoryEnum = BingoCategory;

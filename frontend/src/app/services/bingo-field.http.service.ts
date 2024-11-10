@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { BingoField } from '../model/bingo-field.data';
-import { BingoCategory } from '../model/bingo-category.enum';
+import { BingoField } from '../structured/model/bingo-field.data';
+import { BingoCategory } from '../structured/model/bingo-category.enum';
 
 
 @Injectable({

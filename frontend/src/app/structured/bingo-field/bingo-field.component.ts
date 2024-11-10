@@ -4,6 +4,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
   selector: 'app-bingo-field',
   templateUrl: './bingo-field.component.html',
   styleUrls: ['./bingo-field.component.scss'],
+  standalone: true
 })
 export class BingoFieldComponent {
   @Input() public text: string | undefined;

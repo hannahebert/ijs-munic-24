@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import {BingoField} from "../model/bingo-field.data";
-import {BingoCategory} from "../model/bingo-category.enum";
+import {BingoField} from "../structured/model/bingo-field.data";
+import {BingoCategory} from "../structured/model/bingo-category.enum";
 
 @Injectable({
   providedIn: 'root'
