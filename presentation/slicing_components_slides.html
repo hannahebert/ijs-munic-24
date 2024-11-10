@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>My Reveal.js Presentation</title>
+
+
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="node_modules/reveal.js/dist/theme/dracula.css" id="theme">
+    <link rel="stylesheet" href="node_modules/reveal.js/plugin/highlight/monokai.css">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>Breaking Your UI into a Sustainable Component Hierarchy</h1>
+            <p class="fragment">How to slice up your components</p>
+        </section>
+
+        <section>
+            <div class="r-hstack justify-center">
+                <ul>
+                    <li>Hannah Ebert</li>
+                    <li>adesso SE</li>
+                    <li>Software Architect</li>
+                </ul>
+                <img class="h-stack" src="./images/hannah.jpeg"/>
+            </div>
+        </section>
+
+        <section>
+            <h2>Agenda</h2>
+            <ul>
+                <li>What</li>
+                <li>Why</li>
+                <li>How</li>
+                <li>When</li>
+            </ul>
+        </section>
+
+        <section>
+            <section>
+                <h2>WHAT</h2>
+            </section>
+
+            <section>
+                <h2>What is a Component?</h2>
+                <ul>
+                    <li class="fragment">A self-contained, reusable piece of code.</li>
+                    <li class="fragment">Defines the structure and behavior of a part of a user interface (UI).</li>
+                    <li>Components can be as simple as a button or as complex as a form.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What does self-contained mean</h2>
+                <ul>
+                    <li class="fragment">A component should not rely on external dependencies.</li>
+                    <li class="fragment">It should be able to function independently.</li>
+                    <li class="fragment">Components should be easy to understand and maintain.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Component Slicing</h2>
+                <ul>
+                    <li>Breaking down the UI and application logic into smaller components.</li>
+                    <li>Each component represents a discrete part of the user interface.</li>
+                </ul>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>WHY</h2>
+            </section>
+            <!--            <section class="r-stack">-->
+            <!--                <h2>-->
+            <!--                    <div>Apple Website - 1998</div>-->
+            <!--                    <div class="fragment fade-left" data-fragment-index="1"> vs. 2024</div>-->
+            <!--                </h2>-->
+            <!--                <img class="fragment fade-out" src="./images/apple_website_1998.jpg"/>-->
+            <!--                <img class="r-stretch fragment" data-fragment-index="2" src="./images/apple_website_2024.png">-->
+            <!--            </section>-->
+
+            <section>
+                <h2>Apple Website - 1998</h2>
+                <img src="./images/apple_website_1998.jpg"/>
+            </section>
+            <section>
+                <h2>Apple Website - 2024</h2>
+                <img src="./images/apple_website_2024.png"/>
+            </section>
+            <section>
+                <p>
+                    With the rising complexity in modern web applications, the ability to structure components in a
+                    scalable, maintainable, and efficient way has become essential.
+                </p>
+            </section>
+
+            <section>
+                <h2>4 Benefits of thoughtful component slicing</h2>
+            </section>
+            <section>
+                <h2>Benefit 1: Reusability</h2>
+                <ul>
+                    <li>Components can be reused across different pages or views within the application.</li>
+                    <li>Reduces code duplication and improves development efficiency.</li>
+                    <li>Improves development efficiency.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Benefit 2: Maintainability</h2>
+                <ul>
+                    <li>Smaller components are easier to understand, modify, and debug.</li>
+                    <li>Simplifies maintenance</li>
+                    <li>reduces the risk of introducing bugs when making changes.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Benefit 3: Scalability</h2>
+                <ul>
+                    <li>As the application grows, a component-based architecture allows for better scalability.</li>
+                    <li>Developers can work on different parts of the UI independently.</li>
+                    <li>Enhancing collaboration and speeding up development.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Benefit 4: Testing</h2>
+                <ul>
+                    <li>Isolated components are easier to test individually.</li>
+                    <li>Leading to more comprehensive unit testing and improved overall application quality.</li>
+                </ul>
+            </section>
+        </section>
+
+
+        <!--#############################################-->
+        <section>
+            <section data-background-image="./images/stars.jpg">
+                <h2>Brace Yourself - The Theory Part</h2>
+            </section>
+
+            <!--TODO-->
+            <section>
+                <h2>Core Software Architecture Patterns</h2>
+                A. Atomic Design
+
+                • Purpose: Introduced by Brad Frost, this pattern organizes components into five levels:
+                • Atoms: Basic UI elements (e.g., buttons, inputs).
+                • Molecules: Simple groupings of atoms (e.g., search bar with input and button).
+                • Organisms: Complex components combining atoms and molecules (e.g., a header with a logo, navigation
+                links, and a search bar).
+                • Templates: Page structures filled with components.
+                • Pages: Realized templates with actual data.
+                • Advantages: Makes it easy to scale UI designs and provides consistent structure.
+                • Tips: Use atomic design to ensure that components are small, independent, and reusable.
+
+                B. Container-Presenter Pattern
+
+                • Purpose: This pattern separates components into two categories:
+                • Containers: Handle business logic, data-fetching, and state.
+                • Presenters: Purely visual components that receive props and render UI.
+                • Advantages: Improves separation of concerns and simplifies testing of UI components.
+                • Tips: In React, you can use hooks in container components for side effects and state, while presenters
+                focus solely on rendering.
+
+                C. Component Composition (Functional Composition)
+
+                • Purpose: Builds UIs by composing small, single-purpose components into more complex ones.
+                • Advantages: Reduces the need for inheritance and improves readability by focusing on smaller,
+                purpose-driven components.
+                • Tips: Use higher-order components (HOCs) or hooks in React, directives in Angular, and mixins in Vue
+                to abstract shared logic.
+            </section>
+
+            <section>
+                Single Responsibility Principle: Each component should have a single, well-defined responsibility. For example, a "SearchBar" component handles search input and submission, while a "SearchResult" component displays the search results.
+                State Management: Decide how state will be managed within and across components. Frontend frameworks often provide state management solutions (e.g., React's useState, Vuex, or Angular's NgRx) to handle complex state-related tasks.
+                Data Fetching and API Integration: Consider how components will fetch data from backend APIs or other data sources. Use appropriate patterns like Axios (for data fetching) or GraphQL to integrate with backend services.
+                Styling and CSS: Choose a styling approach (e.g., CSS-in-JS, CSS Modules, or traditional CSS) to ensure components are visually consistent and maintainable.
+            </section>
+
+            <section>
+                <h2>DRY - Don’t Repeat Yourself</h2>
+            </section>
+
+            <section>
+        <section>
+
+            <section>
+                . Write Lean Components
+
+                • Aim for components under 200 lines. If a component grows beyond this, consider breaking it down.
+
+                C. Keep the Component API Small
+
+                • Limit the number of props; use objects for related values, e.g., a style prop instead of individual
+                fontSize, color, etc., props.
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Keep in mind</h2>
+            </section>
+            <section>
+                <h2>KISS - Keep it simple stupid</h2>
+                <ul>
+                    <li>Don't overcomplicate.</li>
+                    <li>Generic might not be the best solution.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>KISS vs. DRY</h2>
+            </section>
+        </section>
+
+        <section>
+            <section data-background-image="./images/stars.jpg">
+                <h2>Let’s Make It Happen!</h2>
+            </section>
+        </section>
+
+        <!--#############################################-->
+        <section>
+            <section>
+                <h2>WHEN</h2>
+            </section>
+        </section>
+    </div>
+</div>
+
+<script src="node_modules/reveal.js/dist/reveal.js"></script>
+<script src="node_modules/reveal.js/plugin/notes/notes.js"></script>
+<script src="node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+<script>
+    Reveal.initialize({
+        autoPlayMedia: true,
+        plugins: [RevealNotes, RevealHighlight],
+        slideNumber: true
+    });
+</script>
+</body>
+</html>
