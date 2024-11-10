@@ -4,18 +4,30 @@ import {BingoFieldHttpService} from '../../services/bingo-field.http.service';
 import {BingoCategory} from '../model/bingo-category.enum';
 import {AuthHttpService} from '../../services/auth-http.service';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListItem, MatNavList} from "@angular/material/list";
+import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
+import {NgIf, TitleCasePipe} from "@angular/common";
 
 
 @Component({
   selector: 'app-games',
   standalone: true,
   imports: [
-    MatToolbarModule
+    MatToolbarModule,
+    MatListItem,
+    MatNavList,
+    MatSidenav,
+    MatSidenavContainer,
+    MatSidenavContent,
+    NgIf,
+    TitleCasePipe
   ],
   templateUrl: './games.component.html',
   styleUrls: ['./games.component.scss'],
 })
 export class GamesComponent implements OnInit {
+  currentGame: string = 'bingo';
+
   readonly bingoCategoryEnum = BingoCategory;
   fields: BingoField[] = [];
   activeBingoCategory: BingoCategory | null = null;
@@ -32,6 +44,10 @@ export class GamesComponent implements OnInit {
 
   toggleSelected(index: number): void {
     this.fields[index].selected = !this.fields[index].selected;
+  }
+
+  switchGame(game: string): void {
+    this.currentGame = game;
   }
 
   checkForBingo(): boolean {
