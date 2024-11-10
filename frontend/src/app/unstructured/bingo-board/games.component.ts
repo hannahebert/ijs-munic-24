@@ -91,4 +91,8 @@ export class GamesComponent implements OnInit {
   onClick() {
     this.selected = !this.selected;
   }
+
+  fieldIsSelected(): boolean {
+    return this.fields.filter(field => field.selected).length > 0;
+  }
 }

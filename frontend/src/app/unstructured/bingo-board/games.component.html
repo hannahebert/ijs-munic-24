@@ -21,7 +21,7 @@
           </mat-list-item>
           <mat-list-item (click)="shuffle()"
                          class="subitems"
-                         [class.disabled]="selected"
+                         [class.disabled]="fieldIsSelected()"
                          title="Order can only be shuffled when no field was selected yet.">
             Shuffle order
           </mat-list-item>
@@ -47,11 +47,10 @@
               <div (click)="toggleSelected(idx)"
                    (click)="onClick()"
                    class="bingo-field"
-                   data-cy="bingo-field"
-                   [class.selected]="selected">
+                   data-cy="bingo-field">
                 {{ field.text }}
 
-                <img *ngIf="selected" src="../../../assets/kruemelmonster.jpg" alt="Checked"
+                <img *ngIf="fields[idx].selected" src="../../../assets/kruemelmonster.jpg" alt="Checked"
                      class="checked-image">
               </div>
             }
