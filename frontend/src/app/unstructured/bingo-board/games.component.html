@@ -1,0 +1,56 @@
+<div class="container">
+
+  <mat-toolbar color="'primary'">
+    <span>Menu</span>
+    <button mat-button (click)="logout()">Logout</button>
+  </mat-toolbar>
+
+  <div class="header-container">
+    <h1 class="board-title">Bingo</h1>
+  </div>
+
+  <div class="category-button-container">
+    <button (click)="setCategoryAndFetchBingoItems(bingoCategoryEnum.OFFICE)"
+            [class.disabled]="activeBingoCategory === bingoCategoryEnum.OFFICE">
+      Office Bingo
+    </button>
+    <button (click)="setCategoryAndFetchBingoItems(bingoCategoryEnum.VACATION)"
+            [class.disabled]="activeBingoCategory === bingoCategoryEnum.VACATION">
+      Vacation Bingo
+    </button>
+
+    <button (click)="shuffle()"
+            class="shuffle-button"
+            [class.disabled]="selected"
+            title="Order can only be shuffled when no field was selected yet.">
+      Shuffle order
+    </button>
+  </div>
+
+  @if (checkForBingo()) {
+    <p class="info-gewonnen" data-cy="winning-message">
+      Bingo! Du hast gewonnen!
+    </p>
+  }
+
+  <div class="board">
+    @for (field of fields; track field.id; let idx = $index) {
+      <div (click)="onClick()"
+           class="bingo-field"
+           data-cy="bingo-field"
+           [class.selected]="selected">
+        {{ field.text }}
+
+        @if (selected) {
+          <img src="../../../assets/kruemelmonster.jpg" alt="Checked"
+               class="checked-image">
+        }
+      </div>
+    }
+  </div>
+
+  <mat-toolbar color="accent">
+    <span>Footer Content</span>
+  </mat-toolbar>
+
+</div>

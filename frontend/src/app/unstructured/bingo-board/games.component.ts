@@ -1,17 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { BingoField } from '../model/bingo-field.data';
-import { BingoFieldHttpService } from '../../services/bingo-field.http.service';
-import { BingoCategory } from '../model/bingo-category.enum';
-import { AuthHttpService } from '../../services/auth-http.service';
+import {Component, OnInit} from '@angular/core';
+import {BingoField} from '../model/bingo-field.data';
+import {BingoFieldHttpService} from '../../services/bingo-field.http.service';
+import {BingoCategory} from '../model/bingo-category.enum';
+import {AuthHttpService} from '../../services/auth-http.service';
+import {MatToolbarModule} from '@angular/material/toolbar';
+
 
 @Component({
-  selector: 'app-bingo-board-unstructured',
+  selector: 'app-games',
   standalone: true,
-  imports: [],
-  templateUrl: './bingo-board.component.html',
-  styleUrls: ['./bingo-board.component.scss'],
+  imports: [
+    MatToolbarModule
+  ],
+  templateUrl: './games.component.html',
+  styleUrls: ['./games.component.scss'],
 })
-export class BingoBoardComponent implements OnInit {
+export class GamesComponent implements OnInit {
   readonly bingoCategoryEnum = BingoCategory;
   fields: BingoField[] = [];
   activeBingoCategory: BingoCategory | null = null;

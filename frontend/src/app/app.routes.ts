@@ -1,6 +1,6 @@
-import { Routes } from '@angular/router';
-import { LoginComponent } from './structured/login/login.component';
-import { BingoBoardComponent } from './structured/bingo-board/bingo-board.component';
+import {Routes} from '@angular/router';
+import {LoginComponent} from './structured/login/login.component';
+import {GamesComponent} from "./unstructured/bingo-board/games.component";
 
 export const appRoutes: Routes = [
   {
@@ -15,6 +15,6 @@ export const appRoutes: Routes = [
   },
   {
     path: 'bingo-board',
-    component: BingoBoardComponent,
+    component: GamesComponent,
   },
 ];
