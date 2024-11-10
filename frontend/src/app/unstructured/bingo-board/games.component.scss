@@ -27,7 +27,7 @@
   display: flex;
   flex-direction: row;
   text-align: center;
-  margin: 16px 0;
+  margin: 16px 150px;
 }
 
 button {
@@ -68,7 +68,7 @@ button {
   gap: 10px;
 }
 
-.shuffle-button {
+.subitems {
   margin-left: 40px;
   background-color: cornsilk;
   color: #000;
@@ -109,7 +109,7 @@ mat-toolbar {
   padding: 0 16px;
 }
 
-.shuffle-button.disabled {
+.subitems.disabled {
   background-color: #e0e0e0;
   color: #9e9e9e;
 }

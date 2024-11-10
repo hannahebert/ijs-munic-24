@@ -8,6 +8,24 @@
     <mat-sidenav mode="side" opened>
       <mat-nav-list>
         <mat-list-item (click)="switchGame('bingo')">Bingo</mat-list-item>
+        <mat-nav-list *ngIf="currentGame === 'bingo'">
+          <mat-list-item class="subitems"
+                         (click)="setCategoryAndFetchBingoItems(bingoCategoryEnum.OFFICE)"
+                         [class.disabled]="activeBingoCategory === bingoCategoryEnum.OFFICE">
+            Office Bingo
+          </mat-list-item>
+          <mat-list-item class="subitems"
+                         (click)="setCategoryAndFetchBingoItems(bingoCategoryEnum.VACATION)"
+                         [class.disabled]="activeBingoCategory === bingoCategoryEnum.VACATION">
+            Vacation Bingo
+          </mat-list-item>
+          <mat-list-item (click)="shuffle()"
+                         class="subitems"
+                         [class.disabled]="selected"
+                         title="Order can only be shuffled when no field was selected yet.">
+            Shuffle order
+          </mat-list-item>
+        </mat-nav-list>
         <mat-list-item (click)="switchGame('minesweeper')">Minesweeper</mat-list-item>
         <mat-list-item (click)="switchGame('other')">Other Games</mat-list-item>
       </mat-nav-list>
@@ -20,24 +38,6 @@
 
       @if (currentGame === 'bingo') {
         <div>
-          <div class="category-button-container">
-            <button (click)="setCategoryAndFetchBingoItems(bingoCategoryEnum.OFFICE)"
-                    [class.disabled]="activeBingoCategory === bingoCategoryEnum.OFFICE">
-              Office Bingo
-            </button>
-            <button (click)="setCategoryAndFetchBingoItems(bingoCategoryEnum.VACATION)"
-                    [class.disabled]="activeBingoCategory === bingoCategoryEnum.VACATION">
-              Vacation Bingo
-            </button>
-
-            <button (click)="shuffle()"
-                    class="shuffle-button"
-                    [class.disabled]="selected"
-                    title="Order can only be shuffled when no field was selected yet.">
-              Shuffle order
-            </button>
-          </div>
-
           <div *ngIf="checkForBingo()" class="info-gewonnen" data-cy="winning-message">
             Bingo! Du hast gewonnen!
           </div>
