@@ -6,7 +6,7 @@ import {AuthHttpService} from '../../services/auth-http.service';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListItem, MatNavList} from "@angular/material/list";
 import {MatSidenav, MatSidenavContainer, MatSidenavContent} from "@angular/material/sidenav";
-import {NgIf, TitleCasePipe} from "@angular/common";
+import {NgFor, NgIf, TitleCasePipe} from "@angular/common";
 
 
 @Component({
@@ -20,6 +20,7 @@ import {NgIf, TitleCasePipe} from "@angular/common";
     MatSidenavContainer,
     MatSidenavContent,
     NgIf,
+    NgFor,
     TitleCasePipe
   ],
   templateUrl: './games.component.html',

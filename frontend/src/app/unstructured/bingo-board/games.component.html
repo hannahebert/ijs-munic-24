@@ -1,5 +1,5 @@
 <div class="container">
-  <mat-toolbar [color]="'primary'">
+  <mat-toolbar class="sticky-header" [color]="'primary'">
     <span>Menu</span>
     <button mat-button (click)="logout()">Logout</button>
   </mat-toolbar>
@@ -14,7 +14,6 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-
       <div class="header-container">
         <h1 class="board-title">{{ currentGame | titlecase }}</h1>
       </div>
@@ -64,9 +63,10 @@
         Coming soon
       </div>
 
-      <mat-toolbar color="accent">
-        <span>Footer Content</span>
-      </mat-toolbar>
     </mat-sidenav-content>
   </mat-sidenav-container>
+
+  <mat-toolbar class="sticky-footer" color="accent">
+    <span class="impressum">Impressum</span>
+  </mat-toolbar>
 </div>
